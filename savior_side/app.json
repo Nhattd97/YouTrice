@@ -1,4 +1,10 @@
 {
   "name": "savior_side",
-  "displayName": "savior_side"
+  "displayName": "savior_side",
+  "android": {
+    "package": "com.savior_side",
+    "config": {
+       "googleMaps": { "apiKey": "AIzaSyDjEhYVHp-Xg5Xk4Lmip_BVgZhu289URLY" }   
+    }
+ }
 }

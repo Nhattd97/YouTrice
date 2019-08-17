@@ -1,73 +1,81 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
-
 import React, {Fragment} from 'react';
 import {
-  SafeAreaView,
+  Button,
+  // SafeAreaView,
   StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
+  // ScrollView,
+  // View,
+  // Text,
+  // StatusBar,
 } from 'react-native';
 
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+import {Colors} from 'react-native/Libraries/NewAppScreen';
+
+import MapView, {PROVIDER_GOOGLE} from 'react-native-maps';
+
+// const getToken = async () => {
+//   let fcmToken = await AsyncStorage.getItem('fcmToken');
+//   if (!fcmToken) {
+//     fcmToken = await firebase.messaging().getToken();
+//     if (fcmToken) {
+//       await AsyncStorage.setItem('fcmToken', fcmToken);
+//     }
+//   }
+// };
+
+// const checkPermission = async () => {
+//   const enabled = await firebase.messaging().hasPermission();
+//   if (enabled) {
+//     this.getToken();
+//   } else {
+//     this.requestPermission();
+//   }
+// };
+
+// const requestPermission = async () => {
+//   try {
+//     await firebase.messaging().requestPermission();
+//     this.getToken();
+//   } catch (error) {
+//     console.log('permission rejected');
+//   }
+// };
+
+// const createNotificationListeners = () => {
+//   firebase.notifications().onNotification(notification => {
+//     notification.android.setChannelId('insider').setSound('default')
+//     firebase.notifications().displayNotification(notification)
+//   });
+// };
+
+// componentDidMount = () => {
+//   const channel = new firebase.notifications.Android.Channel('insider', 'insider channel', firebase.notifications.Android.Importance.Max)
+//   firebase.notifications().android.createChannel(channel);
+//   this.checkPermission();
+//   this.createNotificationListeners();
+// };
 
 const App = () => {
   return (
     <Fragment>
-      <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
-        <ScrollView
-          contentInsetAdjustmentBehavior="automatic"
-          style={styles.scrollView}>
-          <Header />
-          {global.HermesInternal == null ? null : (
-            <View style={styles.engine}>
-              <Text style={styles.footer}>Engine: Hermes</Text>
-            </View>
-          )}
-          <View style={styles.body}>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Step One</Text>
-              <Text style={styles.sectionDescription}>
-                Edit <Text style={styles.highlight}>App.js</Text> to change this
-                screen and then come back to see your edits.
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>See Your Changes</Text>
-              <Text style={styles.sectionDescription}>
-                <ReloadInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Debug</Text>
-              <Text style={styles.sectionDescription}>
-                <DebugInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Learn More</Text>
-              <Text style={styles.sectionDescription}>
-                Read the docs to discover what to do next:
-              </Text>
-            </View>
-            <LearnMoreLinks />
-          </View>
-        </ScrollView>
-      </SafeAreaView>
+      <MapView
+        provider={PROVIDER_GOOGLE}
+        style={{flex: 1}}
+        region={{
+          latitude: 10.806977,
+          longitude: 106.665556,
+          latitudeDelta: 0.1,
+          longitudeDelta: 0.05,
+        }}
+        showsMyLocationButton={true}
+        mapType="standard"
+        zoomEnabled={true}
+        pitchEnabled={true}
+        showsUserLocation={true}
+        followsUserLocation={true}
+        showsCompass={true}
+      />
+      <Button onClick="checkPermission()" title="Click here!" />
     </Fragment>
   );
 };
