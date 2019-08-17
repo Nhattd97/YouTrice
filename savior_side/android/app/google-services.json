@@ -1,34 +1,34 @@
 {
   "project_info": {
-    "project_number": "371739130144",
-    "firebase_url": "https://gnopushackathon.firebaseio.com",
-    "project_id": "gnopushackathon",
-    "storage_bucket": "gnopushackathon.appspot.com"
+    "project_number": "971699651108",
+    "firebase_url": "https://youtrice-14a91.firebaseio.com",
+    "project_id": "youtrice-14a91",
+    "storage_bucket": "youtrice-14a91.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:371739130144:android:4080a8426461593c",
+        "mobilesdk_app_id": "1:971699651108:android:4080a8426461593c",
         "android_client_info": {
           "package_name": "com.savior_side"
         }
       },
       "oauth_client": [
         {
-          "client_id": "371739130144-qhdhhcm41msqe69in34b1qr6ucv7ljmj.apps.googleusercontent.com",
+          "client_id": "971699651108-qbjg7g0btfhf2bk3ac14nhhe1hj9289q.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAZVVRb1t2dUSO60yQlY0OBlO9gignLjKE"
+          "current_key": "AIzaSyAEd8G1XVlN2c2bNLr_9Qg0mOGG3URfgOI"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "371739130144-qhdhhcm41msqe69in34b1qr6ucv7ljmj.apps.googleusercontent.com",
+              "client_id": "971699651108-qbjg7g0btfhf2bk3ac14nhhe1hj9289q.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
