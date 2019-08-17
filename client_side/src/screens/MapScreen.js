@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {
   View,
   Image,
@@ -11,9 +11,9 @@ import {
   Modal,
   TouchableHighlight,
 } from 'react-native';
-import {debounce} from 'lodash';
+import { debounce } from 'lodash';
 import MapView from 'react-native-maps';
-import {findPlaceFromLatLng} from '../services/google.service';
+import { findPlaceFromLatLng } from '../services/google.service';
 import Geolocation from 'react-native-geolocation-service';
 
 const latitudeDelta = 0.025;
@@ -43,6 +43,7 @@ export default class MapScreen extends Component {
       text: 'hello omega ka ka',
       incidentType: 'all',
       isLoading: false,
+      message: '',
     };
     this.onPanDrag = debounce(this.onPanDrag, 1000, {
       leading: true,
@@ -64,12 +65,12 @@ export default class MapScreen extends Component {
       error => {
         console.log(JSON.stringify(error));
       },
-      {enableHighAccuracy: false},
+      { enableHighAccuracy: false },
     );
   }
 
   onRegionChangeComplete = async region => {
-    const {data} = await findPlaceFromLatLng(
+    const { data } = await findPlaceFromLatLng(
       `${region.latitude},${region.longitude}`,
     );
     const newState = {
@@ -83,7 +84,7 @@ export default class MapScreen extends Component {
   };
 
   onPanDrag = () => {
-    const {isPanding} = this.state;
+    const { isPanding } = this.state;
     if (isPanding) {
       return;
     }
@@ -93,16 +94,17 @@ export default class MapScreen extends Component {
   };
 
   submit = () => {
-    const {isLoading} = this.state;
-    if (!isLoading) {
-      return;
+    const req = {
+      category: this.state.incidentType,
+      message: this.state.message
     }
+
     this.setState({
       isLoading: true,
     });
   };
   render() {
-    const {region, isPanding, text} = this.state;
+    const { region, isPanding, text } = this.state;
     return (
       <View style={styles.container}>
         <View style={styles.controlWrapper}>
@@ -110,11 +112,11 @@ export default class MapScreen extends Component {
             style={styles.picker}
             selectedValue={this.state.incidentType}
             onValueChange={(itemValue, itemIndex) =>
-              this.setState({incidentType: itemValue})
+              this.setState({ incidentType: itemValue })
             }>
-            <Picker.Item style={{display: 'none'}} label="All" value="all" />
+            <Picker.Item style={{ display: 'none' }} label="All" value="all" />
             <Picker.Item
-              style={{justifyContent: 'center', alignItems: 'center'}}
+              style={{ justifyContent: 'center', alignItems: 'center' }}
               label="Car"
               value="car"
             />
@@ -126,7 +128,7 @@ export default class MapScreen extends Component {
             style={styles.textInput}
             editable={true}
             maxLength={40}
-            onChange={msg => this.setState({message: msg})}
+            onChange={msg => this.setState({ message: msg })}
           />
         </View>
         <View style={styles.address}>
@@ -173,10 +175,17 @@ export default class MapScreen extends Component {
               isLoading: false,
             });
           }}>
-          <View style={{marginTop: 22}}>
+          <View style={{ marginTop: 22 }}>
             <View>
               <Text>This is modal search Google Places!</Text>
-
+              <Image
+                style={{ height: '100%', width: '100%' }}
+                resizeMode="contain"
+                source={{
+                  uri:
+                    'https://media.giphy.com/media/zglFPxjeRbdm0/giphy.gif',
+                }}
+              />
               <TouchableHighlight
                 onPress={() => {
                   this.setState({
@@ -247,13 +256,13 @@ const styles = StyleSheet.create({
     borderRightWidth: 30,
     borderLeftWidth: 30,
     height: 50,
-    width: '80%',
+    width: '66%',
     borderColor: '#FFFFFF',
     borderWidth: 1,
   },
   picker: {
     height: 50,
-    width: '20%',
+    width: '33%',
     justifyContent: 'center',
     alignItems: 'center',
     borderColor: 'red',

@@ -6,14 +6,20 @@
  * @flow
  */
 
-import React from 'react';
+import React, {Component} from 'react';
 
 import MapScreen from "./src/screens/MapScreen";
 
-const App = () => {
-  return (
-    <MapScreen/>
-  );
+import { createAppContainer } from 'react-navigation';
+import AppNavigator from '../client_side/src/screens/AppNavigator'
+import Login from '../client_side/src/screens/Login'
+
+
+const AppContainer = createAppContainer(AppNavigator);
+export default class App extends Component{
+  render() {
+    return <AppContainer />;
+  }
 };
 
-export default App;
+
