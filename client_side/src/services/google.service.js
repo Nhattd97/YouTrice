@@ -7,10 +7,11 @@ const apis = {
   findPlaceFromLatLng: `https://maps.googleapis.com/maps/api/geocode/json?latlng={{latlng}}&key=${mapToken}&language=vi`,
 };
 
-export const findPlaceFromLatLng = latlng => axios({
-  url: apis.findPlaceFromLatLng.replace('{{latlng}}', latlng),
-  method: 'GET',
-  headers: {
-    'Access-Control-Allow-Origin': '*',
-  },
-});
+export const findPlaceFromLatLng = latlng =>
+  axios({
+    url: apis.findPlaceFromLatLng.replace('{{latlng}}', latlng),
+    method: 'GET',
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+    },
+  });
