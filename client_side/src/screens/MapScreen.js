@@ -153,7 +153,7 @@ export default class MapScreen extends Component {
           />
           <View style={styles.btnWrapper}>
             <TouchableOpacity style={styles.submitBtn} onPress={this.submit}>
-              <Text style={{fontWeight: 'bold', color: 'white'}}>S.O.S</Text>
+              <Text style={{ fontWeight: 'bold', color: 'white' }}>S.O.S</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -171,6 +171,7 @@ export default class MapScreen extends Component {
         </View>
         {/* <Toast message={String(region.latitude)} /> */}
         <Modal
+          style={styles.modal}
           animationType="slide"
           transparent={false}
           visible={this.state.isLoading}
@@ -181,23 +182,24 @@ export default class MapScreen extends Component {
           }}>
           <View style={{ marginTop: 22 }}>
             <View>
-              <Text>This is modal search Google Places!</Text>
+              <Text>Waiting for a savior!</Text>
               <Image
-                style={{ height: '100%', width: '100%' }}
+                style={{ height: 300, width: '100%' }}
                 resizeMode="contain"
                 source={{
                   uri:
                     'https://media.giphy.com/media/zglFPxjeRbdm0/giphy.gif',
                 }}
               />
-              <TouchableHighlight
-                onPress={() => {
+              <View style={styles.btnWrapper}>
+                <TouchableOpacity style={styles.submitBtn} onPress={() => {
                   this.setState({
                     isLoading: false,
                   });
                 }}>
-                <Text>Hide Modal</Text>
-              </TouchableHighlight>
+                <Text style={{ fontWeight: 'bold', color: 'white' }}>Cancel</Text>
+                </TouchableOpacity>
+              </View>
             </View>
           </View>
         </Modal>
@@ -293,4 +295,7 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     backgroundColor: 'red',
   },
+  modal: {
+    backgroundColor: 'yellow',
+  }
 });
