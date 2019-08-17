@@ -153,7 +153,7 @@ export default class MapScreen extends Component {
           />
           <View style={styles.btnWrapper}>
             <TouchableOpacity style={styles.submitBtn} onPress={this.submit}>
-              <Text>S.O.S</Text>
+              <Text style={{fontWeight: 'bold', color: 'white'}}>S.O.S</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -222,8 +222,8 @@ const styles = StyleSheet.create({
     height: '100%',
   },
   marker: {
-    height: 48,
-    width: 48,
+    height: 35,
+    width: 35,
   },
   markerFixed: {
     left: '50%',
