@@ -13,6 +13,10 @@ import {
 
 
 export default class Login extends Component {
+  static navigationOptions = {
+    header: null
+  };
+
   constructor(props) {
     super(props);
     state = {
@@ -51,7 +55,7 @@ export default class Login extends Component {
           <Text style={styles.loginText}>Login</Text>
         </TouchableHighlight>
 
-        <TouchableHighlight style={styles.buttonContainer} onPress={() => this.onClickListener('restore_password')}>
+        <TouchableHighlight style={styles.buttonContainer} onPress={() => {}}>
             <Text>Forgot your password?</Text>
         </TouchableHighlight>
 

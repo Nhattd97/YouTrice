@@ -12,6 +12,14 @@ import {
 } from 'react-native';
 
 export default class SignUpView extends Component {
+  static navigationOptions = {
+    title: 'Sign Up',
+    headerTitleStyle: {
+      fontWeight: 'bold',
+      marginLeft: 115,
+      flex:1
+    },
+  };
 
   constructor(props) {
     super(props);
@@ -23,8 +31,8 @@ export default class SignUpView extends Component {
   }
 
   onClickListener = (viewId) => {
-    Alert.alert("Alert", "Button pressed "+viewId);
-  }
+    this.props.navigation.goBack();
+  };
 
   render() {
     return (

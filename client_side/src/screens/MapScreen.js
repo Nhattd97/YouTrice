@@ -15,6 +15,7 @@ import { debounce } from 'lodash';
 import MapView from 'react-native-maps';
 import { findPlaceFromLatLng } from '../services/google.service';
 import Geolocation from 'react-native-geolocation-service';
+import firebase from "react-native-firebase";
 
 const latitudeDelta = 0.025;
 const longitudeDelta = 0.025;
@@ -30,6 +31,9 @@ const Toast = content => {
   return null;
 };
 export default class MapScreen extends Component {
+  static navigationOptions = {
+    header: null
+  };
   constructor() {
     super();
     this.state = {
