@@ -1,6 +1,7 @@
 import React from 'react';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, Text } from 'react-native';
+import firebase from "react-native-firebase";
 
 const styles = StyleSheet.create({
   container: {
@@ -27,5 +28,6 @@ export default () => (
       }}
     >
     </MapView>
+    <Text>hello nhat</Text>
   </View>
 );
