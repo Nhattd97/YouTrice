@@ -2,6 +2,8 @@
   package="com.client_side">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
       android:name=".MainApplication"
@@ -24,6 +26,15 @@
       <meta-data
         android:name="com.google.android.geo.API_KEY"
         android:value="AIzaSyA_hy3y7YHkmBPghmhXam_uKBrnQvcblJk"/>
+      <service android:name="io.invertase.firebase.messaging.RNFirebaseMessagingService">
+        <intent-filter>
+          <action android:name="com.google.firebase.MESSAGING_EVENT" />
+        </intent-filter>
+      </service>
+
+      <!-- Background Messages (Optional) -->
+
+      <service android:name="io.invertase.firebase.messaging.RNFirebaseBackgroundMessagingService" />
     </application>
 
 </manifest>
