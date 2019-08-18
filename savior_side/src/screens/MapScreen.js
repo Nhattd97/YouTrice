@@ -24,6 +24,10 @@ const styles = StyleSheet.create({
 });
 
 export default class MapScreen extends Component{
+  static navigationOptions = {
+    header: null
+  };
+
   async getToken() {
     let fcmToken = await AsyncStorage.getItem('fcmToken');
     if (!fcmToken) {

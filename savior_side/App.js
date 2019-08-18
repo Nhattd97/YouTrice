@@ -6,7 +6,7 @@
  * @flow
  */
 
-import React, {Fragment} from 'react';
+import React, {Component, Fragment} from 'react';
 import {
   StyleSheet,
   ScrollView,
@@ -17,7 +17,7 @@ import {
 
 
 import { createAppContainer } from 'react-navigation';
-import AppNavigator from '../client_side/src/screens/AppNavigator'
+import AppNavigator from './src/screens/AppNavigator';
 
 
 const AppContainer = createAppContainer(AppNavigator);
