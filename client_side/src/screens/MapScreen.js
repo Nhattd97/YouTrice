@@ -180,26 +180,24 @@ export default class MapScreen extends Component {
               isLoading: false,
             });
           }}>
-          <View style={{ marginTop: 22 }}>
-            <View>
-              <Text>Waiting for a savior!</Text>
-              <Image
-                style={{ height: 300, width: '100%' }}
-                resizeMode="contain"
-                source={{
-                  uri:
-                    'https://media.giphy.com/media/zglFPxjeRbdm0/giphy.gif',
-                }}
-              />
-              <View style={styles.btnWrapper}>
-                <TouchableOpacity style={styles.submitBtn} onPress={() => {
-                  this.setState({
-                    isLoading: false,
-                  });
-                }}>
+          <View style={{ marginTop: 22, alignItems: 'center', height: '100%' }}>
+            <Text style={{ fontWeight: 'bold', color: 'black', fontSize: 20, paddingBottom: 50}}>Waiting for a savior!</Text>
+            <Image
+              style={{ height: 300, width: '100%' }}
+              resizeMode="contain"
+              source={{
+                uri:
+                  'https://media.giphy.com/media/zglFPxjeRbdm0/giphy.gif',
+              }}
+            />
+            <View style={styles.cancelBtnWrapper}>
+              <TouchableOpacity style={styles.submitBtn} onPress={() => {
+                this.setState({
+                  isLoading: false,
+                });
+              }}>
                 <Text style={{ fontWeight: 'bold', color: 'white' }}>Cancel</Text>
-                </TouchableOpacity>
-              </View>
+              </TouchableOpacity>
             </View>
           </View>
         </Modal>
@@ -294,6 +292,14 @@ const styles = StyleSheet.create({
     width: 100,
     borderRadius: 50,
     backgroundColor: 'red',
+  },
+  cancelBtnWrapper: {
+    alignItems: 'center',
+    backgroundColor: 'transparent',
+    zIndex: 999,
+    position: 'absolute',
+    bottom: 0,
+    marginBottom: 100,
   },
   modal: {
     backgroundColor: 'yellow',
