@@ -6,15 +6,7 @@
  * @flow
  */
 
-import React, {Component, Fragment} from 'react';
-import {
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
-} from 'react-native';
-
+import React, {Component} from 'react';
 
 import { createAppContainer } from 'react-navigation';
 import AppNavigator from './src/screens/AppNavigator';
