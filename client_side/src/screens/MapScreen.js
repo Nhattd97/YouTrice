@@ -180,8 +180,8 @@ export default class MapScreen extends Component {
               isLoading: false,
             });
           }}>
-          <View style={{ marginTop: 22, alignItems: 'center', height: '100%' }}>
-            <Text style={{ fontWeight: 'bold', color: 'black', fontSize: 20, paddingBottom: 50}}>Waiting for a savior!</Text>
+          <View style={{ paddingTop: 22, alignItems: 'center', height: '100%', backgroundColor: 'yellow' }}>
+            <Text style={{ fontWeight: 'bold', color: 'black', fontSize: 20, paddingBottom: 50}}>Waiting for a savior...</Text>
             <Image
               style={{ height: 300, width: '100%' }}
               resizeMode="contain"
@@ -295,7 +295,7 @@ const styles = StyleSheet.create({
   },
   cancelBtnWrapper: {
     alignItems: 'center',
-    backgroundColor: 'transparent',
+    backgroundColor: 'yellow',
     zIndex: 999,
     position: 'absolute',
     bottom: 0,
