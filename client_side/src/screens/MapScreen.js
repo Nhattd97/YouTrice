@@ -281,7 +281,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'transparent',
     zIndex: 999,
     position: 'absolute',
-    bottom: 0,
+    bottom: 10,
     left: 150,
     margin: 10,
   },

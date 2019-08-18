@@ -6,7 +6,14 @@
  * @flow
  */
 
-import React, {Component} from 'react';
+import React, {Fragment} from 'react';
+import {
+  StyleSheet,
+  ScrollView,
+  View,
+  Text,
+  StatusBar,
+} from 'react-native';
 
 
 import { createAppContainer } from 'react-navigation';

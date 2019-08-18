@@ -5,12 +5,12 @@ import {
   Text,
   View,
   TextInput,
-  Button,
   TouchableHighlight,
   Image,
-  Alert
 } from 'react-native';
+import firebase from "react-native-firebase";
 
+const ref = firebase.database().ref('requestPending');
 
 export default class Login extends Component {
   static navigationOptions = {
@@ -19,7 +19,7 @@ export default class Login extends Component {
 
   constructor(props) {
     super(props);
-    state = {
+    this.state = {
       email   : '',
       password: '',
     }
@@ -27,8 +27,14 @@ export default class Login extends Component {
 
   onClickListener = (viewId) => {
     this.props.navigation.navigate('MapScreen');
-    //Alert.alert("Alert", "Button pressed "+viewId);
-  }
+  };
+
+  needHelp = () => {
+    console.warn(ref);
+    if (ref) {
+      ref.push({ needHelp: true });
+    }
+  };
 
   render() {
     return (
@@ -55,7 +61,7 @@ export default class Login extends Component {
           <Text style={styles.loginText}>Login</Text>
         </TouchableHighlight>
 
-        <TouchableHighlight style={styles.buttonContainer} onPress={() => {}}>
+        <TouchableHighlight style={styles.buttonContainer} onPress={() => this.needHelp()}>
             <Text>Forgot your password?</Text>
         </TouchableHighlight>
 
