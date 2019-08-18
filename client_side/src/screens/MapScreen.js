@@ -153,7 +153,7 @@ export default class MapScreen extends Component {
           />
           <View style={styles.btnWrapper}>
             <TouchableOpacity style={styles.submitBtn} onPress={this.submit}>
-              <Text style={{fontWeight: 'bold', color: 'white'}}>S.O.S</Text>
+              <Text style={{ fontWeight: 'bold', color: 'white' }}>S.O.S</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -171,6 +171,7 @@ export default class MapScreen extends Component {
         </View>
         {/* <Toast message={String(region.latitude)} /> */}
         <Modal
+          style={styles.modal}
           animationType="slide"
           transparent={false}
           visible={this.state.isLoading}
@@ -179,25 +180,24 @@ export default class MapScreen extends Component {
               isLoading: false,
             });
           }}>
-          <View style={{ marginTop: 22 }}>
-            <View>
-              <Text>This is modal search Google Places!</Text>
-              <Image
-                style={{ height: '100%', width: '100%' }}
-                resizeMode="contain"
-                source={{
-                  uri:
-                    'https://media.giphy.com/media/zglFPxjeRbdm0/giphy.gif',
-                }}
-              />
-              <TouchableHighlight
-                onPress={() => {
-                  this.setState({
-                    isLoading: false,
-                  });
-                }}>
-                <Text>Hide Modal</Text>
-              </TouchableHighlight>
+          <View style={{ paddingTop: 22, alignItems: 'center', height: '100%', backgroundColor: 'yellow' }}>
+            <Text style={{ fontWeight: 'bold', color: 'black', fontSize: 20, paddingBottom: 50}}>Waiting for a savior...</Text>
+            <Image
+              style={{ height: 300, width: '100%' }}
+              resizeMode="contain"
+              source={{
+                uri:
+                  'https://media.giphy.com/media/zglFPxjeRbdm0/giphy.gif',
+              }}
+            />
+            <View style={styles.cancelBtnWrapper}>
+              <TouchableOpacity style={styles.submitBtn} onPress={() => {
+                this.setState({
+                  isLoading: false,
+                });
+              }}>
+                <Text style={{ fontWeight: 'bold', color: 'white' }}>Cancel</Text>
+              </TouchableOpacity>
             </View>
           </View>
         </Modal>
@@ -293,4 +293,15 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     backgroundColor: 'red',
   },
+  cancelBtnWrapper: {
+    alignItems: 'center',
+    backgroundColor: 'yellow',
+    zIndex: 999,
+    position: 'absolute',
+    bottom: 0,
+    marginBottom: 100,
+  },
+  modal: {
+    backgroundColor: 'yellow',
+  }
 });
