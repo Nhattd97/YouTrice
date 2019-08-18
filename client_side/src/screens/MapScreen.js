@@ -17,6 +17,8 @@ import { findPlaceFromLatLng } from '../services/google.service';
 import Geolocation from 'react-native-geolocation-service';
 import firebase from "react-native-firebase";
 
+const ref = firebase.database().ref('requestPending');
+
 const latitudeDelta = 0.025;
 const longitudeDelta = 0.025;
 
@@ -100,7 +102,12 @@ export default class MapScreen extends Component {
   submit = () => {
     const req = {
       category: this.state.incidentType,
-      message: this.state.message
+      message: this.state.message,
+      region: this.state.region
+    };
+
+    if (ref) {
+      ref.push(req);
     }
 
     this.setState({

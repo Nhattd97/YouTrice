@@ -1,15 +1,10 @@
 import React, { Component } from 'react';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
-import { View, StyleSheet, Text } from 'react-native';
+import { View, StyleSheet, Text, AsyncStorage } from 'react-native';
 import firebase from "react-native-firebase";
 
 const serverTime = firebase.database().getServerTime();
 const ref = firebase.database().ref('requestPending');
-ref.on('child_added', dataSnapshot => {
-  if (dataSnapshot.val()) {
-    console.warn(dataSnapshot.val());
-  }
-});
 
 const styles = StyleSheet.create({
   container: {
@@ -68,6 +63,12 @@ export default class MapScreen extends Component{
     firebase.notifications().android.createChannel(channel);
     this.checkPermission();
     this.createNotificationListeners();
+
+    ref.on('child_added', dataSnapshot => {
+      if (dataSnapshot.val()) {
+        console.warn(dataSnapshot.val());
+      }
+    });
   }
 
   render() {
@@ -76,8 +77,8 @@ export default class MapScreen extends Component{
         <MapView
           style={styles.map}
           region={{
-            latitude: 37.78825,
-            longitude: -122.4324,
+            latitude: 10.80814946,
+            longitude: 106.66536214,
             latitudeDelta: 0.015,
             longitudeDelta: 0.0121,
           }}

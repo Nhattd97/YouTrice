@@ -8,9 +8,6 @@ import {
   TouchableHighlight,
   Image,
 } from 'react-native';
-import firebase from "react-native-firebase";
-
-const ref = firebase.database().ref('requestPending');
 
 export default class Login extends Component {
   static navigationOptions = {
